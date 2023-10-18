@@ -9,8 +9,7 @@ export default function Rodape(){
           <li><a href="#">Facebook</a></li>
         </ul>
       </footer>
-        
-    </div>)
-
-    
+    </div>
+    )
+  
 }
