@@ -17,6 +17,6 @@
 
 
     .rodape{
-        @apply font-extrabold text-2xl text-white bg-slate-800 p-4 text-center fixed bottom-0 w-full;
+        @apply font-extrabold text-sm text-white bg-slate-800 p-4 text-center fixed bottom-0 w-full;
     }
 }
