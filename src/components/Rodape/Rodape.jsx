@@ -1,8 +1,8 @@
 export default function Rodape(){
     return(
     <div>
-      <footer>
-        <p>Desenvolvido por Nicolly</p>
+      <footer className="rodape" >
+        <p>Desenvolvido por rm552579</p>
         <ul>
           <li><a href="#">Github</a></li>
           <li><a href="#">X</a></li>
