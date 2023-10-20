@@ -4,7 +4,9 @@ import Link from "next/link"
 export default function Cabecalho (){
     return(
         <header className="bg-slate-800  text-white" >
-            <h1 className="text-center text-3x1 font-extrabold">Produtos</h1>
+            <h1 className="text-center text-3x1 font-extrabold">
+                <Link href="/">Produtos</Link>
+            </h1>
             <hr className="bg-red-600 border-red-700" />
             <nav className="menu">
                 <ul>
