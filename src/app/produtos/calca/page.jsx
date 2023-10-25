@@ -8,11 +8,10 @@ export default function Calca() {
         <h1>Calça</h1>
         <div>
             <p>calça cargo</p>
+            <p><Link href="/">Voltar</Link></p>
             <figure>
               <Image src="/cargo-preta.jpeg" alt="produtos" width={320} height={320}></Image>
             </figure>
-
-            <p><Link href="/">Voltar</Link></p>
         </div>
     </div>
   )

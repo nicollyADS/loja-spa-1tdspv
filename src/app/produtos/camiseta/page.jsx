@@ -8,10 +8,10 @@ export default function Camiseta() {
         <h1>Camiseta</h1>
         <div>
             <p>Camiseta Nike Feminina</p>
+            <p><Link href="/">Voltar</Link></p>
             <figure>
               <Image src="/camiseta.jfif" alt="camiseta nike feminina" width={320} height={320}></Image>
             </figure>
-            <p><Link href="/">Voltar</Link></p>
         </div>
     </div>
   )
