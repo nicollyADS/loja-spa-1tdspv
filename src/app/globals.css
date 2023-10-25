@@ -19,4 +19,22 @@
     .rodape{
         @apply font-extrabold text-sm text-white bg-slate-800 p-4 text-center fixed bottom-0 w-full;
     }
+
+    .card-User{
+        @apply flex flex-wrap  ;
+
+        & li{
+           @apply p-5 m-5  bg-gray-300 w-40 ;
+
+           & img{
+            @apply block m-auto;
+           }
+
+           & figcaption{
+            @apply text-center font-bold text-sm;
+           }
+
+          
+        }
+    }
 }

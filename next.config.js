@@ -16,6 +16,13 @@ module.exports = {
           hostname: 'www.paodeacucar.com', 
           port: '',
           pathname: '/img/**',
+        },
+
+        {
+          protocol: "https",
+          hostname: "avatars.githubusercontent.com",
+          port: '',
+          pathname: "/u/**"
         }
       ],
     },
