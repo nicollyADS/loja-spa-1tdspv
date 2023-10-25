@@ -6,7 +6,7 @@ export default function Tenis() {
   return (
     <div>
         <h1>Tênis</h1>
-        <div></div>
+        <div>
             <p>Nike air force branco</p>
             <p><Link href="/">Voltar</Link></p>
             <figure>
