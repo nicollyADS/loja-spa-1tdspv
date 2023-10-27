@@ -1,10 +1,16 @@
 import Image from "next/image";
+import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export default async function TodosLaticinios() {
-
-        const response = await fetch("http://localhost:3000/api/laticinios");
-        const queijos = await response.json();
-        
+        let queijos;
+        try{
+            const response = await fetch("http://localhost:3000/api/laticinios/0");
+            queijos = await response.json();
+        }catch(error){
+            console.log(error);
+            redirect("/error");
+        }
   return (
     <div>
 
@@ -25,7 +31,10 @@ export default async function TodosLaticinios() {
                 {queijos.map((queijo) => (
                     <tr key={queijo.id}>
                         <td>{queijo.id}</td>
-                        <td><Image src={queijo.imagem} width={100} height={100} alt={queijo.descricao} /></td>
+                        <td>
+                            <Link href={`/produtos/fazenda/loja/laticinios/${queijo.id}`}>
+                            <Image src={queijo.imagem} width={100} height={100} alt={queijo.descricao} /></Link>
+                        </td>
                         <td>{queijo.nome}</td>
                         <td>{queijo.preco}</td>
                         <td>{queijo.categoria}</td>
