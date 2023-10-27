@@ -37,4 +37,32 @@
           
         }
     }
+
+    .lat-prod-all{
+
+        & table{
+            @apply w-full text-center border border-blue-950;
+            & thead{
+                @apply bg-blue-950 text-white;
+
+                & th{
+                    @apply p-2 border border-white;
+                }
+            }
+
+            & tbody{
+                & tr{
+                    @apply bg-blue-950 text-white;
+
+                    & td{
+                        @apply p-2 border border-white;
+
+                        & img{
+                            @apply w-20 block m-auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
