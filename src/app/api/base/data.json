@@ -1,0 +1,9 @@
+{
+    "usuários" :[
+        { "id" : 1 , "nome" : " Alexandre Carlos " , "email" : " profalexandre@fiap.com.br " , "senha" : " 123456 " },
+        { "id" : 2 , "nome" : " Luis Gustavo " , "email" : " profluis@fiap.com.br " , "senha" : " 123456 " },
+        { "id" : 3 , "nome" : " Rafael Lucas " , "email" : " profrafa@fiap.com.br " , "senha" : " 123456 " },
+        { "id" : 4 , "nome" : " Jorge Moraes " , "email" : " profjorge@fiap.com.br " , "senha" : " 123456 " },
+        { "id" : 5 , "nome" : " Ricardo Melo " , "email" : " profmelo@fiap.com.br " , "senha" : " 123456 " }
+    ]
+}
