@@ -10,6 +10,10 @@ export default function Cabecalho (){
             <hr className="bg-red-600 border-red-700" />
             <nav className="menu">
                 <ul>
+
+                    <li >
+                        <Link href="/login">Login</Link>
+                    </li>
                     <li className="inline" >
                         <Link href="/produtos/calca">Calca</Link>
                     </li>

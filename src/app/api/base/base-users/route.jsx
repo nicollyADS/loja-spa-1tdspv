@@ -38,6 +38,3 @@ export async function POST(request, response){
     }
     return NextResponse.json({"status":false});
 }
-
-
-
