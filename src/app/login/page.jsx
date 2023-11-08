@@ -1,7 +1,11 @@
 'use client'
+import { useRouter } from "next/navigation";
 import { useState } from "react"
 
 export default function Login() {
+
+    //Utilizando o redirecionamento quando estamos no cliente:
+    const router = useRouter();
 
     const [msgstatus, setMsgStatus] = useState("")
 
@@ -36,9 +40,19 @@ export default function Login() {
                 
                 if(status.status == true){
                     setMsgStatus("Login realizado com SUCESSO!");
+                    setTimeout(()=>{
+                        setMsgStatus("");
+                        router.push("/");
+                    },5000)
                 }else{
                     setMsgStatus("USUARIO OU SENHA INVÁLIDOS!");
-                    
+                    setTimeout(()=>{
+                        setMsgStatus("");
+                        setUsuario({
+                            "email":"",
+                            "senha":""
+                        });
+                    },5000)
                 }
             }
         } catch (error) {
