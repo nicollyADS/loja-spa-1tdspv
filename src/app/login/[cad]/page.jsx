@@ -1,9 +1,9 @@
 'use client'
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react"
-import Link from "next/link";
 
-export default function LoginUser() {
+export default function CadUser({params} ) {
 
     //Utilizando o redirecionamento quando estamos no cliente:
     const router = useRouter();
@@ -13,7 +13,7 @@ export default function LoginUser() {
 
     //criando um useState para comportar o usuario
     const [usuario, setUsuario] = useState({
-        "info":"login",
+        "nome":"",
         "email":"",
         "senha":""
     });
@@ -50,20 +50,20 @@ export default function LoginUser() {
                 body: JSON.stringify(usuario)
             });
             if(response.ok){
-                let status = await response.json();
+               const user = await response.json();
                 
-                if(status.status == true){
-                    setMsgStatus("Login realizado com SUCESSO!");
+                if(user){
+                    setMsgStatus("Cadastro realizado com SUCESSO!");
                     setTimeout(()=>{
                         setMsgStatus("");
                         router.push("/");
                     },5000)
                 }else{
-                    setMsgStatus("USUARIO OU SENHA INVÁLIDOS!");
+                    setMsgStatus("USUARIO NÃO CADASTRADO");
                     setTimeout(()=>{
                         setMsgStatus("");
                         setUsuario({
-                            "info":"login",
+                            "nome": "",
                             "email":"",
                             "senha":""
                         });
@@ -77,7 +77,7 @@ export default function LoginUser() {
 
   return (
     <div>
-        <h1>Informações dos usuarios</h1>
+        <h1>Cadastro de Usuários</h1>
 
             <h2 className={classLoginMsg}>{msgstatus}</h2>
 
@@ -85,6 +85,11 @@ export default function LoginUser() {
             <form onSubmit={handleSubmit}>
                 <fieldset>
                     <legend>LOGIN</legend>
+                    <div>
+                        <label htmlFor="idNome">NOME:</label>
+                        <input type="text" name="nome" id="idNome" placeholder="Digite o seu nome:"
+                        value={usuario.nome} onChange={handleChange}/>
+                    </div>
                     <div>
                         <label htmlFor="idEmail">EMAIL:</label>
                         <input type="email" name="email" id="idEmail" placeholder="Digite o seu email:"
@@ -96,10 +101,10 @@ export default function LoginUser() {
                         value={usuario.senha} onChange={handleChange}/>
                     </div>
                     <div>
-                        <button>Login</button>
+                        <button>Cadastrar</button>
                     </div>
                     <div>
-                        <p>Se não possui registro. <Link href="/login/cad">Clique aqui</Link></p>
+                        <p>Se ja possui registro. <Link href="/login">Clique aqui</Link></p>
                     </div>
                 </fieldset>
             </form>
