@@ -1,6 +1,6 @@
 'use client'
 import { useRouter } from "next/navigation";
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function Login() {
 
@@ -8,12 +8,24 @@ export default function Login() {
     const router = useRouter();
 
     const [msgstatus, setMsgStatus] = useState("")
+    const [classLoginMsg, setClassLoginMsg] = useState("")
 
     //criando um useState para comportar o usuario
     const [usuario, setUsuario] = useState({
         "email":"",
         "senha":""
     });
+
+    useEffect(() => {
+      if(msgstatus == "Login realizado com SUCESSO!"){
+        setClassLoginMsg("login-suc")
+      }else if(msgstatus == "USUARIO OU SENHA INVÁLIDOS!"){
+        setClassLoginMsg("login-err");
+      }else{
+        setClassLoginMsg("login");
+      }
+    }, [msgstatus])
+    
     //função de preenchimento do FORM...
     const handleChange = (e)=>{
         //Destruturing
@@ -64,7 +76,7 @@ export default function Login() {
     <div>
         <h1>Informações dos usuarios</h1>
 
-            <h2>{msgstatus}</h2>
+            <h2 className={classLoginMsg}>{msgstatus}</h2>
 
         <div>
             <form onSubmit={handleSubmit}>
@@ -82,6 +94,9 @@ export default function Login() {
                     </div>
                     <div>
                         <button>Login</button>
+                    </div>
+                    <div>
+                        <p>Novo aqui?</p>
                     </div>
                 </fieldset>
             </form>
