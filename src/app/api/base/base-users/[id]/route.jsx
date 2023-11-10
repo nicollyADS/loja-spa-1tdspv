@@ -1,8 +1,6 @@
 import {promises as fs} from 'fs';
 import { NextResponse } from 'next/server';
 
-
-
 export async function GET(request, {params}) {
     
     const file  = await  fs.readFile(process.cwd() + '/src/app/api/base/data.json', 'utf8');
@@ -18,8 +16,8 @@ export async function GET(request, {params}) {
     }
 }
 
-
-const handleLogin = async(email,senha)=>{
+//Criando a função do LOGIN
+const handleLogin = async (email,senha)=>{
     const file  = await  fs.readFile(process.cwd() + '/src/app/api/base/data.json', 'utf8');
     const usuarios = await JSON.parse(file);
 
@@ -31,22 +29,20 @@ const handleLogin = async(email,senha)=>{
                 return userFile;
             }
         }
+        return null;
     }catch(error){
         console.log(error);
-    }
-
+ }
 }
 
-
-
 export async function POST(request, response){
-    const dadosRequest = await request.json();
+    //Pegando os dados do request com o await e destructuring.
+    const {info,email,senha} = await request.json();
 
+    console.log(info,email,senha);
 
-    if(dadosRequest.info == "login"){
-       return NextResponse.json(await handleLogin(dadosRequest.email, dadosRequest.senha));
-
+    if(info == "login"){
+        return  NextResponse.json( await handleLogin(email,senha));
     }
-
     return NextResponse.json({"status":false});
 }
