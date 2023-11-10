@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export default function Calca() {
+export default function Calca({props}) {
   return (
     <div>
         <h1>Calça</h1>
